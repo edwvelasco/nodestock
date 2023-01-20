@@ -16,9 +16,9 @@ function call_api(finishedAPI) {
 	request('https://cloud.iexapis.com/v1/stock/aapl/quote/latestPrice?token=pk_8e5fb969df5b484da5e2fc52a592841a', { json: true }, (err, res, body) => {
 	if (err) {return console.log(err);}
 	if (res.statusCode === 200){
-		// console.log(body);
+		console.log(body);
 		finishedAPI(body);
-	};
+		};
 });
 };
 
@@ -40,7 +40,7 @@ const otherstuff = "hello there, this is other stuff!";
 
 // Set handlebar routes
 app.get('/', function (req, res) {
-	call_api(function(doneAPI){
+	call_api(function(doneAPI) {
 		res.render('home', {
 		stock: doneAPI
 		});
